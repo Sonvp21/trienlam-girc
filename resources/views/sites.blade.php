@@ -44,7 +44,7 @@
             ['id'=>'so-huu-tri-tue','name'=>'Quản lý và phát triển sở hữu trí tuệ','icon'=>'copyright','category'=>'Kinh tế số','url'=>'https://shttvinhlong.girc.edu.vn'],
             ['id'=>'nong-lam-nghiep','name'=>'Theo dõi, thống kê sản xuất nông lâm nghiệp','icon'=>'agriculture','category'=>'Kinh tế số','url'=>'https://csdlnnbk.girc.edu.vn'],
             ['id'=>'du-lich-ba-be-vr360','name'=>'Du lịch Ba Bể VR360','icon'=>'vrpano','category'=>'Kinh tế số','url'=>'https://vr360.babetourism.vn'],
-            ['id'=>'truy-xuat-nguon-goc','name'=>'Truy xuất nguồn gốc sản phẩm','icon'=>'qr_code_scanner','category'=>'Kinh tế số','url'=>'https://ocopbentre.girc.edu.vn/company/dashboard'],
+            ['id'=>'truy-xuat-nguon-goc','name'=>'Truy xuất nguồn gốc sản phẩm','icon'=>'qr_code_scanner','category'=>'Kinh tế số','url'=>'https://truyxuat.girc.edu.vn'],
             ['id'=>'benh-ly-phoi','name'=>'Chuẩn đoán bệnh lý phổi','icon'=>'pulmonology','category'=>'Xã hội số','url'=>'http://lungai.girc.edu.vn','credentials'=>[['label'=>'TK bác sĩ','value'=>'doctor1 / password'],['label'=>'TK bệnh nhân','value'=>'patient1 / password']]],
             ['id'=>'lop-hoc-so','name'=>'Lớp học số','icon'=>'school','category'=>'Xã hội số','url'=>'https://lophocso.girc.edu.vn','credentials'=>[['label'=>'TK học sinh','value'=>'student001@example.com / Student001@'],['label'=>'TK giáo viên','value'=>'hoa.tt@example.com / HoaTeacher1@']]],
             ['id'=>'thu-vien-nong-dan','name'=>'Thư viện nông dân số','icon'=>'local_library','category'=>'Xã hội số','url'=>'https://thuviennln.girc.edu.vn'],
