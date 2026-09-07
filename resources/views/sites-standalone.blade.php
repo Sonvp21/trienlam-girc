@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+  <link rel="icon" type="image/jpeg" href="/girc-logo.jpg">
+  <link rel="apple-touch-icon" href="/girc-logo.jpg">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hội thảo Ứng dụng AI & IoT</title>
