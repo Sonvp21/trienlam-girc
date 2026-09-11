@@ -112,17 +112,10 @@
                         ],
                         [
                             'id' => 'nong-lam-nghiep',
-                            'name' => 'Theo dõi, thống kê sản xuất nông lâm nghiệp',
+                            'name' => 'Hệ thống thông tin ngành nông nghiệp',
                             'icon' => 'agriculture',
                             'category' => 'Kinh tế số',
                             'url' => 'https://csdlnnbk.girc.edu.vn',
-                        ],
-                        [
-                            'id' => 'bao-cao-thong-ke-nn',
-                            'name' => 'Hệ thống báo cáo thống kê Nông nghiệp',
-                            'icon' => 'agriculture',
-                            'category' => 'Kinh tế số',
-                            'url' => 'https://csdlnn.girc.edu.vn',
                         ],
                         [
                             'id' => 'bac-si-ai-cay-trong',
