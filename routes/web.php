@@ -11,8 +11,3 @@ Route::get('/', function () {
 Route::get('/sites', function () {
     return view('sites');
 });
-
-// Trang hội thảo AI & IoT độc lập
-Route::get('/hoi-thao-ai-iot', function () {
-    return view('sites-standalone');
-});

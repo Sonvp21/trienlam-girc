@@ -20,8 +20,9 @@ const ITEM_ICONS = {
   'thoi-tiet': 'thunderstorm', 'thuy-loi': 'water_drop', 'khoang-san': 'terrain',
   'moi-truong-khong-khi': 'airwave', 'dat-dai': 'map', 'chuyen-doi-so-xa': 'apartment',
   'ocop': 'storefront', 'so-huu-tri-tue': 'copyright', 'nong-lam-nghiep': 'agriculture',
-  'du-lich-ba-be-vr360': 'vrpano', 'truy-xuat-nguon-goc': 'qr_code_scanner',
   'benh-ly-phoi': 'pulmonology', 'lop-hoc-so': 'school', 'thu-vien-nong-dan': 'local_library',
+  'truy-xuat-nguon-goc': 'qr_code_scanner', 'tuoi-che-thong-minh': 'sensors',
+  'bao-cao-thong-ke-nn': 'agriculture', 'bac-si-ai-cay-trong': 'eco',
 };
 const itemIcon = (id) => ITEM_ICONS[id] || 'play_circle';
 
@@ -516,8 +517,12 @@ function onVideoEnded() {
 function playProject(p, viaVoice = false) {
   state.selected = p;
   state.voiceMessage = '';
-  const sep = p.video_url.includes('?') ? '&' : '?';
-  state.videoSrc = p.video_url + sep + 'autoplay=1&enablejsapi=1';
+
+  if (p.video_url) {
+    const sep = p.video_url.includes('?') ? '&' : '?';
+    state.videoSrc = p.video_url + sep + 'autoplay=1&enablejsapi=1';
+  }
+  // Chưa có video minh hoạ (video_url null/rỗng): giữ nguyên videoSrc hiện tại, không đổi, không lỗi
   render();
 
   if (viaVoice) {
