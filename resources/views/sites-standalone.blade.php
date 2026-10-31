@@ -53,13 +53,15 @@
 
       @php
         $sites = [
-          ['id'=>'iot','name'=>'Hệ thống tưới chè thông minh','icon'=>'sensors','url'=>null,'video_url'=>'https://www.youtube.com/embed/uyH4HE9TKTw'],
-          ['id'=>'qlsx-truy-xuat','name'=>'Hệ thống Quản lý sản xuất và Truy xuất nguồn gốc','icon'=>'qr_code_scanner','url'=>'https://truyxuat.girc.edu.vn','video_url'=>'https://www.youtube.com/embed/4T0lVcOLJoY'],
-          ['id'=>'bao-cao-thong-ke-nln','name'=>'Hệ thống báo cáo thống kê Nông nghiệp','icon'=>'agriculture','url'=>'https://csdlnn.girc.edu.vn/','video_url'=>'https://www.youtube.com/embed/CV-aaB4JEEg'],
-          ['id'=>'thu-vien-so-ai','name'=>'Hệ thống thư viện số AI','icon'=>'local_library','url'=>'https://thuviennln.girc.edu.vn/','video_url'=>'https://www.youtube.com/embed/Y_Y3_TKI2ho'],
-          ['id'=>'ocop','name'=>'Hệ thống quản lý sản phẩm OCOP','icon'=>'storefront','url'=>'https://ocopbentre.girc.edu.vn/','video_url'=>'https://www.youtube.com/embed/YPp2FUibpWE'],
-          ['id'=>'shtt','name'=>'Hệ thống Sở hữu trí tuệ','icon'=>'copyright','url'=>'https://shttvinhlong.girc.edu.vn/','video_url'=>'https://www.youtube.com/embed/wl4CO8ETPos'],
-          ['id'=>'bac-si-ai-cay-trong','name'=>'Hệ thống Bác sĩ AI cho cây trồng','icon'=>'eco','url'=>'https://aiplant.girc.edu.vn','video_url'=>null],
+          ['id'=>'iot','name'=>'Chăm cây trồng/cây chè','icon'=>'sensors','url'=>null,'video_url'=>'https://www.youtube.com/embed/uyH4HE9TKTw'],
+          ['id'=>'cham-soc-vat-nuoi-ga','name'=>'Hệ thống chăm sóc vật nuôi/Gà','icon'=>'egg','url'=>null,'video_url'=>null],
+          ['id'=>'bac-si-ai-cay-trong','name'=>'Bác sĩ của cây trồng','icon'=>'eco','url'=>'https://aiplant.girc.edu.vn','video_url'=>null],
+          ['id'=>'qlsx-truy-xuat','name'=>'Truy xuất nguồn gốc nông sản','icon'=>'qr_code_scanner','url'=>'https://truyxuat.girc.edu.vn','video_url'=>'https://www.youtube.com/embed/4T0lVcOLJoY'],
+          ['id'=>'thu-vien-so-ai','name'=>'Thư viện nông nghiệp số','icon'=>'local_library','url'=>'https://thuviennln.girc.edu.vn/','video_url'=>'https://www.youtube.com/embed/Y_Y3_TKI2ho'],
+          ['id'=>'du-lich-nong-thon','name'=>'Du lịch nông thôn thông minh','icon'=>'travel_explore','url'=>null,'video_url'=>null],
+          ['id'=>'tthc','name'=>'Hỗ trợ người dân nắm bắt TTHC','icon'=>'support_agent','url'=>'https://tuvantthc.girc.edu.vn/','video_url'=>null],
+          ['id'=>'ocop','name'=>'Quản lý và phát triển, đánh giá, phân hạng SP OCOP','icon'=>'storefront','url'=>'https://ocopbentre.girc.edu.vn/','video_url'=>'https://www.youtube.com/embed/YPp2FUibpWE'],
+          ['id'=>'bao-cao-thong-ke-nln','name'=>'Thống kê nông nghiệp cấp xã/toàn tỉnh','icon'=>'bar_chart','url'=>'https://csdlnn.girc.edu.vn/','video_url'=>'https://www.youtube.com/embed/CV-aaB4JEEg'],
         ];
         $firstWithVideo = collect($sites)->firstWhere('video_url', '!=', null);
       @endphp
