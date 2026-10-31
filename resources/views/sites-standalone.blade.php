@@ -5,7 +5,7 @@
   <link rel="apple-touch-icon" href="/girc-logo.jpg">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hội thảo Ứng dụng AI & IoT</title>
+  <title>Triển lãm Ứng dụng AI & IoT</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <style>
@@ -17,13 +17,13 @@
   </style>
 </head>
 <body class="bg-[#f5f7fb]">
-  <div class="flex min-h-screen flex-col">
+  <div class="flex min-h-screen flex-col lg:h-screen lg:overflow-hidden">
     <header class="relative overflow-hidden border-b-2 border-brand-blue bg-white bg-cover bg-center" style="background-image: url('/bgheader.jpg')">
       <div class="absolute inset-0 bg-white/85"></div>
-      <div class="relative mx-auto px-4 py-3 sm:px-6">
+      <div class="relative mx-auto px-4 py-2 sm:px-6">
         <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div class="flex items-start gap-3">
-            <img id="logoImg" src="/girc-logo.jpg" alt="GIRC" class="h-20 w-20" />
+            <img id="logoImg" src="/girc-logo.jpg" alt="GIRC" class="h-16 w-16" />
             <div class="leading-snug">
               <p class="text-base font-bold uppercase tracking-wide">Trường Đại học Nông Lâm</p>
               <p class="text-base font-bold uppercase tracking-wide">Trung tâm Nghiên cứu Địa Tin học</p>
@@ -32,7 +32,7 @@
             </div>
           </div>
           <div class="text-center">
-            <h1 class="text-xl font-extrabold uppercase leading-tight text-brand-red sm:text-2xl">Hội thảo</h1>
+            <h1 class="text-xl font-extrabold uppercase leading-tight text-brand-red sm:text-2xl">Triển lãm</h1>
             <p class="text-sm font-bold leading-snug text-blue-900 sm:text-xl">ỨNG DỤNG AI &amp; IoT</p>
             <p class="text-sm font-bold uppercase leading-snug text-blue-900 sm:text-xl">trong Sản xuất Nông nghiệp Thông minh</p>
           </div>
@@ -43,11 +43,11 @@
       </button>
     </header>
 
-    <div class="relative flex-1">
-      <section class="mx-auto py-4 text-center">
+    <div class="relative flex flex-1 flex-col lg:min-h-0">
+      <section class="mx-auto py-2 text-center">
         <h2 class="relative inline-block px-6 py-2 text-xl font-extrabold text-[#0f172a]">
           <span class="absolute inset-0 -z-10 rounded-md bg-[#e5f0f9] blur-[4px]" style="height:38px;align-self:center;width:96%;justify-self:center;"></span>
-          CÁC HỆ THỐNG CNTT, AI &amp; IoT TRONG NÔNG NGHIỆP
+          CÔNG NGHỆ SỐ, TIỀN ĐỀ CHO PHÁT TRIỂN NÔNG NGHIỆP BỀN VỮNG
         </h2>
       </section>
 
@@ -66,12 +66,12 @@
         $firstWithVideo = collect($sites)->firstWhere('video_url', '!=', null);
       @endphp
 
-      <main class="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-4 pb-4 sm:px-6 lg:grid-cols-[minmax(0,460px)_1fr]">
-        <ul id="siteListWrap" class="divide-y divide-slate-100 overflow-hidden rounded-md border border-white/40 bg-white/80 shadow-lg backdrop-blur-lg">
+      <main class="mx-auto grid w-full max-w-7xl grid-cols-1 gap-4 px-4 pb-3 sm:px-6 lg:min-h-0 lg:flex-1 lg:grid-cols-[minmax(0,460px)_1fr] lg:grid-rows-1">
+        <ul id="siteListWrap" class="divide-y divide-slate-100 overflow-hidden lg:min-h-0 lg:overflow-y-auto rounded-md border border-white/40 bg-white/80 shadow-lg backdrop-blur-lg">
           @foreach ($sites as $s)
           <li>
             @if ($s['url'])
-              <a href="{{ $s['url'] }}" target="_blank" rel="noopener noreferrer" class="flex w-full items-start gap-2.5 px-4 py-3.5 text-left transition hover:bg-slate-50">
+              <a href="{{ $s['url'] }}" target="_blank" rel="noopener noreferrer" class="flex w-full items-start gap-2.5 px-4 py-2.5 text-left transition hover:bg-slate-50">
                 <span class="material-symbols-outlined mt-0.5 shrink-0 text-lg text-blue-700">{{ $s['icon'] }}</span>
                 <span class="min-w-0 flex-1">
                   <span class="block text-sm font-medium text-slate-700 sm:text-[15px]">{{ $s['name'] }}</span>
@@ -80,7 +80,7 @@
                 <span class="material-symbols-outlined mt-0.5 shrink-0 text-base text-slate-500">open_in_new</span>
               </a>
             @elseif ($s['video_url'])
-              <button type="button" data-site-id="{{ $s['id'] }}" class="site-select-btn flex w-full items-start gap-2.5 px-4 py-3.5 text-left transition hover:bg-slate-50">
+              <button type="button" data-site-id="{{ $s['id'] }}" class="site-select-btn flex w-full items-start gap-2.5 px-4 py-2.5 text-left transition hover:bg-slate-50">
                 <span class="material-symbols-outlined mt-0.5 shrink-0 text-lg text-blue-700">{{ $s['icon'] }}</span>
                 <span class="min-w-0 flex-1">
                   <span class="block text-sm font-medium text-slate-700 sm:text-[15px]">{{ $s['name'] }}</span>
@@ -89,7 +89,7 @@
                 <span class="material-symbols-outlined mt-0.5 shrink-0 text-lg text-slate-400">play_circle</span>
               </button>
             @else
-              <div class="flex w-full cursor-default items-start gap-2.5 px-4 py-3.5 text-left opacity-70">
+              <div class="flex w-full cursor-default items-start gap-2.5 px-4 py-2.5 text-left opacity-70">
                 <span class="material-symbols-outlined mt-0.5 shrink-0 text-lg text-slate-600">{{ $s['icon'] }}</span>
                 <span class="min-w-0 flex-1">
                   <span class="block text-sm font-medium text-slate-700 sm:text-[15px]">{{ $s['name'] }}</span>
@@ -101,9 +101,9 @@
           @endforeach
         </ul>
 
-        <div class="flex flex-col gap-3">
-          <div class="overflow-hidden rounded-md border border-white/40 bg-black shadow-lg">
-            <div class="aspect-video w-full">
+        <div class="flex flex-col gap-3 lg:min-h-0">
+          <div class="overflow-hidden rounded-md border border-white/40 bg-black shadow-lg lg:min-h-0 lg:flex-1">
+            <div class="aspect-video w-full lg:aspect-auto lg:h-full">
               <iframe id="mainVideoFrame" src="{{ $firstWithVideo['video_url'] ?? '' }}" title="Video minh hoạ hệ thống" class="h-full w-full" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
@@ -127,10 +127,25 @@
       </main>
     </div>
 
-    <footer class="relative flex min-h-[120px] items-center justify-center overflow-hidden bg-[#5081BC] bg-cover bg-center py-4" style="background-image: url('/footer.png')">
-      <div class="absolute inset-0 bg-black/25"></div>
-      <p class="relative rounded-md px-6 py-2.5 text-center text-base font-extrabold tracking-wide text-white shadow-lg backdrop-blur-sm sm:px-8 sm:text-xl md:text-2xl" style="text-shadow: 0 1px 3px rgba(0,0,0,0.6);">
-        HỘI THẢO ỨNG DỤNG AI &amp; IoT TRONG SẢN XUẤT NÔNG NGHIỆP THÔNG MINH NĂM 2026
+    <footer class="relative flex h-[1cm] shrink-0 items-center justify-between overflow-hidden bg-[#5081BC] bg-cover bg-center px-4 text-white sm:px-6" style="background-image: url('/footer.png')">
+      <div class="absolute inset-0 bg-black/30"></div>
+      @php
+        try {
+          $cache = \Illuminate\Support\Facades\Cache::store('file');
+          if (!$cache->has('hoithao_visits')) $cache->forever('hoithao_visits', 0);
+          $visits = $cache->increment('hoithao_visits');
+          $now = time();
+          $online = $cache->get('hoithao_online', []);
+          $online[session()->getId()] = $now;
+          $online = array_filter($online, fn ($t) => $now - $t < 300);
+          $cache->put('hoithao_online', $online, 600);
+          $onlineCount = count($online);
+        } catch (\Throwable $e) { $visits = '–'; $onlineCount = '–'; }
+      @endphp
+      <p class="relative text-xs font-semibold" style="text-shadow: 0 1px 3px rgba(0,0,0,0.6);">Designed by GIRC</p>
+      <p class="relative flex items-center gap-4 text-xs font-semibold" style="text-shadow: 0 1px 3px rgba(0,0,0,0.6);">
+        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">wifi</span>Online: {{ $onlineCount }}</span>
+        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">visibility</span>Truy cập: {{ is_numeric($visits) ? number_format($visits) : $visits }}</span>
       </p>
     </footer>
   </div>
