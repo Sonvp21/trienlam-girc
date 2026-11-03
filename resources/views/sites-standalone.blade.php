@@ -54,12 +54,12 @@
       @php
         $sites = [
           ['id'=>'iot','name'=>'Chăm cây trồng/cây chè','icon'=>'sensors','url'=>null,'video_url'=>'https://www.youtube.com/embed/uyH4HE9TKTw'],
-          ['id'=>'cham-soc-vat-nuoi-ga','name'=>'Hệ thống chăm sóc vật nuôi/Gà','icon'=>'egg','url'=>null,'video_url'=>null],
-          ['id'=>'bac-si-ai-cay-trong','name'=>'Bác sĩ của cây trồng','icon'=>'eco','url'=>'https://aiplant.girc.edu.vn','video_url'=>null],
+          ['id'=>'cham-soc-vat-nuoi-ga','name'=>'Hệ thống chăm sóc vật nuôi/Gà','icon'=>'egg','url'=>null,'video_url'=>'https://www.youtube.com/embed/b3K61HA57oM'],
+          ['id'=>'bac-si-ai-cay-trong','name'=>'Bác sĩ của cây trồng','icon'=>'eco','url'=>'https://aiplant.girc.edu.vn','video_url'=>'https://www.youtube.com/embed/GOTLrUu1A1s'],
           ['id'=>'qlsx-truy-xuat','name'=>'Truy xuất nguồn gốc nông sản','icon'=>'qr_code_scanner','url'=>'https://truyxuat.girc.edu.vn','video_url'=>'https://www.youtube.com/embed/4T0lVcOLJoY'],
           ['id'=>'thu-vien-so-ai','name'=>'Thư viện nông nghiệp số','icon'=>'local_library','url'=>'https://thuviennln.girc.edu.vn/','video_url'=>'https://www.youtube.com/embed/Y_Y3_TKI2ho'],
-          ['id'=>'du-lich-nong-thon','name'=>'Du lịch nông thôn thông minh','icon'=>'travel_explore','url'=>null,'video_url'=>null],
-          ['id'=>'tthc','name'=>'Hỗ trợ người dân nắm bắt TTHC','icon'=>'support_agent','url'=>'https://tuvantthc.girc.edu.vn/','video_url'=>null],
+          ['id'=>'du-lich-nong-thon','name'=>'Du lịch nông thôn thông minh','icon'=>'travel_explore','url'=>null,'video_url'=>'https://www.youtube.com/embed/ntDs89fjN90'],
+          ['id'=>'tthc','name'=>'Hỗ trợ người dân nắm bắt TTHC','icon'=>'support_agent','url'=>'https://tuvantthc.girc.edu.vn/','video_url'=>'https://www.youtube.com/embed/dZrzwWBzrcM'],
           ['id'=>'ocop','name'=>'Quản lý và phát triển, đánh giá, phân hạng SP OCOP','icon'=>'storefront','url'=>'https://ocopbentre.girc.edu.vn/','video_url'=>'https://www.youtube.com/embed/YPp2FUibpWE'],
           ['id'=>'bao-cao-thong-ke-nln','name'=>'Thống kê nông nghiệp cấp xã/toàn tỉnh','icon'=>'bar_chart','url'=>'https://csdlnn.girc.edu.vn/','video_url'=>'https://www.youtube.com/embed/CV-aaB4JEEg'],
         ];
@@ -108,7 +108,7 @@
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
           </div>
-          <div class="grid grid-cols-6 gap-2" id="thumbGrid">
+          <div class="grid grid-cols-5 gap-2" id="thumbGrid">
             @foreach (collect($sites)->where('video_url', '!=', null) as $s)
             @php
               $vid = null;
