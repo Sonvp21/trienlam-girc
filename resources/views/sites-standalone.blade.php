@@ -104,8 +104,7 @@
         <div class="flex flex-col gap-3 lg:min-h-0">
           <div class="overflow-hidden rounded-md border border-white/40 bg-black shadow-lg lg:min-h-0 lg:flex-1">
             <div class="aspect-video w-full lg:aspect-auto lg:h-full">
-              <iframe id="mainVideoFrame" src="{{ $firstWithVideo['video_url'] ?? '' }}" title="Video minh hoạ hệ thống" class="h-full w-full" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <div id="mainVideoFrame" class="h-full w-full"></div>
             </div>
           </div>
           <div class="grid grid-cols-5 gap-2" id="thumbGrid">
@@ -153,10 +152,64 @@
   <script>
     const sites = @json($sites);
 
+    const AUTOPLAY_MUTED = true; // true: tự phát im lặng (mọi trình duyệt đều cho); chạm/bấm lần đầu sẽ bật tiếng
+    const playlist = sites
+      .filter((x) => x.video_url)
+      .map((x) => ({ id: x.id, vid: (x.video_url.match(/\/embed\/([^?]+)/) || [])[1] }))
+      .filter((x) => x.vid);
+    let player = null;
+    let current = 0;
+    let errorStreak = 0;
+
+    function setActive(i) {
+      document.querySelectorAll('.thumb-btn').forEach((b) => {
+        const on = !!playlist[i] && b.dataset.siteId === playlist[i].id;
+        b.classList.toggle('ring-2', on);
+        b.classList.toggle('ring-blue-500', on);
+      });
+    }
+
+    function play(i) {
+      if (!playlist.length) return;
+      current = ((i % playlist.length) + playlist.length) % playlist.length;
+      setActive(current);
+      if (player && player.loadVideoById) player.loadVideoById(playlist[current].vid);
+    }
+
     function selectSite(id) {
-      const s = sites.find((x) => x.id === id);
-      if (!s || !s.video_url) return;
-      document.getElementById('mainVideoFrame').src = s.video_url;
+      const i = playlist.findIndex((x) => x.id === id);
+      if (i >= 0) { errorStreak = 0; play(i); }
+    }
+
+    window.onYouTubeIframeAPIReady = function () {
+      if (!playlist.length) return;
+      player = new YT.Player('mainVideoFrame', {
+        width: '100%',
+        height: '100%',
+        videoId: playlist[current].vid,
+        playerVars: { autoplay: 1, mute: AUTOPLAY_MUTED ? 1 : 0, rel: 0, playsinline: 1, enablejsapi: 1 },
+        events: {
+          onReady: (e) => { e.target.playVideo(); setActive(current); },
+          onStateChange: (e) => {
+            if (e.data === YT.PlayerState.PLAYING) errorStreak = 0;
+            if (e.data === YT.PlayerState.ENDED) play(current + 1);
+          },
+          onError: () => {
+            errorStreak++;
+            if (errorStreak < playlist.length) setTimeout(() => play(current + 1), 1500);
+          }
+        }
+      });
+    };
+
+    const ytTag = document.createElement('script');
+    ytTag.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(ytTag);
+
+    if (AUTOPLAY_MUTED) {
+      document.addEventListener('pointerdown', () => {
+        try { player && player.unMute && (player.unMute(), player.setVolume(100)); } catch (e) {}
+      }, { once: true });
     }
 
     document.querySelectorAll('.site-select-btn, .thumb-btn').forEach((btn) => {
